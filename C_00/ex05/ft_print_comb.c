@@ -7,12 +7,12 @@ void ft_print_comb(void)
     char u;
 
     c = '0';
-    d = '1';
-    u = '2';
     while (c < '7')
     {
+        d = c + 1;
         while (d <= '8')
         {
+            u = d + 1;
             while (u <= '9')
             {
                 write (1, &c, 1);
@@ -22,11 +22,8 @@ void ft_print_comb(void)
                 u++;
             }
             d++;
-            u = d + 1;
         }
         c++;
-        d = c + 1;
-        u = d + 1;
     }
     write(1, "789", 3);
 }
