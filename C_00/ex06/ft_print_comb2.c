@@ -12,6 +12,7 @@
 #include <unistd.h>
 
 void	putchar(char c);
+void	ft_print_comb2(void);
 
 void	ft_print_comb2(void)
 {

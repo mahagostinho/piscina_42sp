@@ -11,38 +11,33 @@
 /* ************************************************************************** */
 #include<unistd.h>
 
+void	ft_putnbr(int nb);
+
 void	ft_putnbr(int nb)
 {
 	int		res;
 	char	c;
-	// Transformando nb para positivo e tratando o caso limite negativo
+
 	if (nb == -2147483648)
 	{
-		write(1, "-", 1);
-		write(1, "2", 1);
+		write(1, "-2", 2);
 		nb = 147483648;
 	}
-	if (nb > -2147483648 && nb < 0)
+	if (nb >= -2147483648 && nb < 0)
 	{
 		nb = nb * (-1);
 		write(1, "-", 1);
-	}
-
-	// Sendo nb positivo:
-	if(nb >= 0 && nb <= 2147483647)
+	}	
+	res = nb % 10;
+	c = res + '0';
+	if (nb <= 9)
 	{
-		res = nb % 10;
-		c = res + '0';
-
-		if (nb <= 9)
-		{
-			write(1, &c, 1);
-			return;
-		}
-		else
-		{
-			ft_putnbr(nb / 10);
-			write(1, &c, 1);
-		}
+		write(1, &c, 1);
+		return ;
+	}
+	else
+	{
+		ft_putnbr(nb / 10);
+		write(1, &c, 1);
 	}
 }

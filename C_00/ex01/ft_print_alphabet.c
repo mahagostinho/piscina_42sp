@@ -9,17 +9,18 @@
 /*   Updated: 2022/07/18 19:20:37 by marcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include <unistd.h>
 
-void ft_print_alphabet(void)
-{
-    char letra;
-    letra = 'a';
-    while (letra <= 'z')
-    {
-        write(1, &letra, 1);
-        letra++;
-    }
+void	ft_print_alphabet(void);
 
+void	ft_print_alphabet(void)
+{
+	char	letter;
+
+	letter = 'a';
+	while (letter <= 'z')
+	{
+		write(1, &letter, 1);
+		letter++;
+	}
 }
