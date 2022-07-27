@@ -1,43 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb.c                                    :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marcarva <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/19 19:00:06 by marcarva          #+#    #+#             */
-/*   Updated: 2022/07/19 19:00:11 by marcarva         ###   ########.fr       */
+/*   Created: 2022/07/26 11:38:49 by marcarva          #+#    #+#             */
+/*   Updated: 2022/07/26 11:38:53 by marcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+char	*ft_strncpy(char *dest, char *src, unsigned int n);
 
-#include <unistd.h>
-
-void	ft_print_comb(void);
-
-void	ft_print_comb(void)
+char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
-	char	c;
-	char	d;
-	char	u;
+	unsigned int	i;
 
-	c = '0';
-	while (c < '7')
+	i = 0;
+	while (src[i] != '\0' && i < n)
 	{
-		d = c + 1;
-		while (d <= '8')
-		{
-			u = d + 1;
-			while (u <= '9')
-			{
-				write (1, &c, 1);
-				write (1, &d, 1);
-				write (1, &u, 1);
-				write (1, ", ", 2);
-				u++;
-			}
-			d++;
-		}
-		c++;
+		dest[i] = src[i];
+		i++;
 	}
-	write(1, "789", 3);
+	while (i < n)
+	{
+		dest[i] = '\0';
+		i++;
+	}
+	return (dest);
 }

@@ -1,43 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb.c                                    :+:      :+:    :+:   */
+/*   ft_str_is_lowercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marcarva <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/19 19:00:06 by marcarva          #+#    #+#             */
-/*   Updated: 2022/07/19 19:00:11 by marcarva         ###   ########.fr       */
+/*   Created: 2022/07/25 18:27:07 by marcarva          #+#    #+#             */
+/*   Updated: 2022/07/25 18:27:10 by marcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+int	ft_str_is_lowercase(char *str);
 
-#include <unistd.h>
-
-void	ft_print_comb(void);
-
-void	ft_print_comb(void)
+int	ft_str_is_lowercase(char *str)
 {
-	char	c;
-	char	d;
-	char	u;
+	int	i;
+	int	r;
 
-	c = '0';
-	while (c < '7')
+	r = 0;
+	i = 0;
+	if (str[0] == '\0')
+		r = 1;
+	else
 	{
-		d = c + 1;
-		while (d <= '8')
+		while (str[i] != '\0')
 		{
-			u = d + 1;
-			while (u <= '9')
+			if (str[i] >= 'a' && str[i] <= 'z')
 			{
-				write (1, &c, 1);
-				write (1, &d, 1);
-				write (1, &u, 1);
-				write (1, ", ", 2);
-				u++;
+				r = 1;
+				i++;
 			}
-			d++;
+			else
+			{
+				r = 0;
+				break ;
+			}
 		}
-		c++;
 	}
-	write(1, "789", 3);
+	return (r);
 }

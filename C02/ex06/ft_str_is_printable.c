@@ -1,43 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb.c                                    :+:      :+:    :+:   */
+/*   ft_str_is_printable.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marcarva <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/19 19:00:06 by marcarva          #+#    #+#             */
-/*   Updated: 2022/07/19 19:00:11 by marcarva         ###   ########.fr       */
+/*   Created: 2022/07/25 18:57:14 by marcarva          #+#    #+#             */
+/*   Updated: 2022/07/25 18:57:16 by marcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+int	ft_str_is_printable(char *str);
 
-#include <unistd.h>
-
-void	ft_print_comb(void);
-
-void	ft_print_comb(void)
+int	ft_str_is_printable(char *str)
 {
-	char	c;
-	char	d;
-	char	u;
+	int	i;
+	int	r;
 
-	c = '0';
-	while (c < '7')
+	if (str[0] == '\0')
 	{
-		d = c + 1;
-		while (d <= '8')
-		{
-			u = d + 1;
-			while (u <= '9')
-			{
-				write (1, &c, 1);
-				write (1, &d, 1);
-				write (1, &u, 1);
-				write (1, ", ", 2);
-				u++;
-			}
-			d++;
-		}
-		c++;
+		r = 1;
 	}
-	write(1, "789", 3);
+	else
+	{
+		i = 0;
+		while (str[i] != '\0')
+		{
+			if (str[i] >= 32 && str[i] <= 126)
+			{
+				r = 1;
+			}
+			else
+			{
+				r = 0;
+				break ;
+			}
+			i++;
+		}
+	}
+	return (r);
 }
